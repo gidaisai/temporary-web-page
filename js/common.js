@@ -43,10 +43,16 @@ function getCurrentPageName() {
   return filename.replace('.html', '');
 }
 
-// ページ読み込み時にヘッダー・フッターを読み込む
+// ページ読み込み時にヘッダー・フッター・お問い合わせ先を読み込む
 document.addEventListener('DOMContentLoaded', async function() {
   await loadComponent('header-placeholder', 'includes/header.html');
   await loadComponent('footer-placeholder', 'includes/footer.html');
+  
+  // お問い合わせ先プレースホルダーがある場合のみ読み込む
+  const contactPlaceholder = document.getElementById('contact-placeholder');
+  if (contactPlaceholder) {
+    await loadComponent('contact-placeholder', 'includes/contact.html');
+  }
   
   // ナビゲーションのアクティブ状態を設定
   setActiveNavigation();

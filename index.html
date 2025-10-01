@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>第77回岐阜大学祭 | トップ</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <div id="header-placeholder"></div>
   <main>
@@ -15,7 +17,13 @@
       </div>
       <div class="hero-content">
         <span class="badge">Blooming ― さらなる挑戦と成長の3日間</span>
-        <h1>岐大祭とは？</h1>
+        <div class="event-info">
+          <h1>岐大祭とは？</h1>
+          <div class="date-info">
+            <span class="date-badge">日程</span>
+            <span class="date-text">2025年11月1日(土) ～ 3日(月祝)</span>
+          </div>
+        </div>
         <p>
           第77回岐阜大学祭は、岐阜大学で3日間にわたり開催される地域最大級の学園祭です。
           学生による多彩な企画や模擬店がキャンパスを彩り、地域のみなさまと一緒に作り上げる特別な時間が広がります。
@@ -23,7 +31,47 @@
         <p class="tagline">テーマ「Blooming」に込めた想いとともに、岐阜大学生の新たな挑戦をぜひご体感ください。</p>
       </div>
     </section>
+    <section class="section countdown-section" aria-labelledby="countdown-heading">
 
+      <div id="countdown-display" class="countdown-display"></div>
+    </section>
+    <script>
+      (function () {
+        const countdownDisplay = document.getElementById('countdown-display');
+        const festStart = new Date('2025-11-01T11:00:00+09:00'); // JST
+        const festEnd = new Date('2025-11-04T00:00:00+09:00');   // JST
+
+        function updateCountdown() {
+          const now = new Date();
+          if (now < festStart) {
+            // Before festival
+            const diff = festStart - now;
+            if (diff > 0) {
+              const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+              const mins = Math.floor((diff / (1000 * 60)) % 60);
+              const secs = Math.floor((diff / 1000) % 60);
+              countdownDisplay.innerHTML =
+                `岐阜大学祭まで残り <span class="countdown-number">${String(days).padStart(2, '0')}</span><span class="countdown-unit">日</span> ` +
+                `<span class="countdown-number">${String(hours).padStart(2, '0')}</span><span class="countdown-unit">時間</span> ` +
+                `<span class="countdown-number">${String(mins).padStart(2, '0')}</span><span class="countdown-unit">分</span> ` +
+                `<span class="countdown-number">${String(secs).padStart(2, '0')}</span><span class="countdown-unit">秒</span>`;
+            }
+          } else if (now >= festStart && now < festEnd) {
+            // During festival
+            // Day 1: 11/1, Day 2: 11/2, Day 3: 11/3
+            const festDay = now.getDate() - festStart.getDate() + 1;
+            countdownDisplay.textContent = `第77回岐阜大学祭 ${festDay}日目`;
+          } else {
+            // After festival
+            countdownDisplay.textContent = 'ご来場いただき誠にありがとうございました。次回の岐大祭でお会いしましょう！';
+          }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      })();
+    </script>
     <section class="section" aria-labelledby="mascot-heading">
       <h2 id="mascot-heading">岐大祭マスコットキャラクター</h2>
       <div class="grid-2">
@@ -42,56 +90,47 @@
 
     <section class="section" aria-labelledby="venue-heading">
       <h2 id="venue-heading">会場・アクセス</h2>
-      <div class="grid-2">
-        <div>
+      <div class="venue-info">
+        <div class="venue-details">
           <dl>
             <dt>会場</dt>
             <dd>岐阜大学</dd>
             <dt>住所</dt>
             <dd>〒501-1193 岐阜県岐阜市柳戸1-1</dd>
           </dl>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4201.608054829566!2d136.73463467648054!3d35.46513764181329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003ac859a55f3ab%3A0xf89f8d58b5a1ab9e!2z5bKQ6Zic5aSn5a2m!5e1!3m2!1sja!2sjp!4v1759329166739!5m2!1sja!2sjp"
+              width="100%" height="350" style="border:0; border-radius: 0.5rem;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="岐阜大学の地図">
+            </iframe>
+
+          </div>
         </div>
-        <div>
+        <div class="access-info">
+          <h3>アクセス方法</h3>
           <dl>
-            <dt>JR岐阜駅から</dt>
-            <dd>9番乗り場からバスで約30分</dd>
-            <dt>名鉄岐阜駅から</dt>
-            <dd>5番乗り場からバスで約30分</dd>
+            <dt>岐阜バス [C71・C72] 岐阜大学・病院線</dt>
+            <dd>JR岐阜駅から9番乗り場</dd>
+            <dd>名鉄岐阜駅から5番乗り場</dd>
+            <dd>「岐阜大学」まで35分・400円</dd>
+            <dt>岐阜バス [N37] 岐南町線</dt>
+            <dd>JR岐阜駅から11番乗り場</dd>
+            <dd>名鉄岐阜駅から4番乗り場</dd>
+            <dd>「岐阜大学」まで40分・400円</dd>
+            <dt>タクシー</dt>
+            <dd>岐阜大学まで約25分</dd>
+            <dt>自家用車</dt>
+            <dd>一般用駐車場に限りがあります。できる限り公共交通機関をご利用ください。</dd>
           </dl>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">お問い合わせ先</h2>
-      <p>ご不明点がございましたら、各担当までお気軽にお問い合わせください。（★ を <span aria-label="アットマーク gmail ドットコム">@gmail.com</span> に置き換えてください）</p>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>模擬店企画</h3>
-          <p>有志局 模擬店部<br />77gidaisai+mogiten★</p>
-        </div>
-        <div class="contact-card">
-          <h3>有志ステージ企画</h3>
-          <p>有志局 有志ステージ部<br />77gidaisai+stage★</p>
-        </div>
-        <div class="contact-card">
-          <h3>屋内企画</h3>
-          <p>有志局 屋内部<br />77gidaisai+okunai★</p>
-        </div>
-        <div class="contact-card">
-          <h3>その他・渉外</h3>
-          <p>渉外局<br />77gidaisai+ext★</p>
-        </div>
-      </div>
-      <dl>
-        <dt>主催</dt>
-        <dd>全学行事団体 岐阜大学祭実行委員会</dd>
-        <dt>所在地</dt>
-        <dd>〒501-1193 岐阜県岐阜市柳戸1-1 岐阜大学 大学会館内</dd>
-      </dl>
-    </section>
+    <div id="contact-placeholder"></div>
   </main>
   <div id="footer-placeholder"></div>
   <script src="js/common.js"></script>
 </body>
+
 </html>
