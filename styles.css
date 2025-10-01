@@ -45,6 +45,18 @@ header {
   gap: 1.5rem;
 }
 
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.committee-logo {
+  height: 50px;
+  width: auto;
+  border-radius: 0.25rem;
+}
+
 .site-title {
   margin: 0;
   font-size: 1.75rem;
@@ -86,6 +98,29 @@ main {
   margin-bottom: 2.5rem;
 }
 
+/* 画像がある場合のみflexレイアウトを適用 */
+.hero.hero-with-image {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-visual {
+  flex: 1;
+  max-width: 400px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.main-visual {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 16px rgba(15, 76, 129, 0.15);
+}
+
 .hero h1 {
   margin-top: 0;
   font-size: 2.2rem;
@@ -116,6 +151,14 @@ main {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-2 img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(15, 76, 129, 0.1);
 }
 
 .badge {
@@ -219,6 +262,27 @@ footer p {
   line-height: 1.7;
 }
 
+.notice-item.with-image {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.notice-content {
+  flex: 1;
+}
+
+.notice-image {
+  flex: 0 0 200px;
+}
+
+.notice-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(15, 76, 129, 0.1);
+}
+
 .external-links {
   display: grid;
   gap: 1rem;
@@ -252,11 +316,42 @@ footer p {
     align-items: flex-start;
   }
 
+  .header-logo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .committee-logo {
+    height: 40px;
+  }
+
   nav ul {
     flex-wrap: wrap;
   }
 
   .hero {
     padding: 2rem;
+  }
+
+  .hero.hero-with-image {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-visual {
+    max-width: 100%;
+    order: -1;
+  }
+
+  .notice-item.with-image {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .notice-image {
+    flex: none;
+    max-width: 250px;
+    margin: 0 auto;
   }
 }
