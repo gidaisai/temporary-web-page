@@ -397,6 +397,167 @@ footer p {
   color: var(--muted);
 }
 
+/* SNSリンクのスタイル */
+.sns-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sns-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.sns-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sns-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+}
+
+.sns-link.twitter {
+  background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%);
+}
+
+.sns-link.twitter:hover {
+  background: linear-gradient(135deg, #0d8bd9 0%, #0a7bc4 100%);
+}
+
+.sns-link.instagram {
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+}
+
+.sns-link.instagram:hover {
+  background: linear-gradient(135deg, #7209b7 0%, #e91e63 50%, #f57c00 100%);
+}
+
+.sns-link.gidanyan {
+  background: linear-gradient(135deg, #f6b042 0%, #e69500 100%);
+}
+
+.sns-link.gidanyan:hover {
+  background: linear-gradient(135deg, #e69500 0%, #cc8400 100%);
+}
+
+.sns-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media (max-width: 768px) {
+  .sns-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .sns-link {
+    width: 220px;
+    justify-content: center;
+  }
+}
+
+/* バス路線番号のスタイル */
+.bus-route {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 2rem;
+  padding: 0.1rem 0.1rem;
+  margin: 0 0.2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.bus-route::before {
+  content: '';
+  margin-right: 0rem;
+  font-size: 0rem;
+}
+
+/* C系統のスタイル（青系） */
+.bus-route.c-line {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: 2px solid #1e40af;
+}
+
+.bus-route.c-line:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+/* N系統のスタイル（緑系） */
+.bus-route.n-line {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: 2px solid #047857;
+}
+
+.bus-route.n-line:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* バス路線情報のコンテナ */
+.bus-routes-group {
+  gap: 0.1rem;
+}
+
+.bus-routes-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  align-items: center;
+  margin: 0.2rem 0;
+}
+
+.route-description {
+  font-weight: 600;
+  color: var(--primary);
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .bus-route {
+    min-width: 2.5rem;
+    height: 1.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .bus-route::before {
+    font-size: 0.7rem;
+    margin-right: 0.2rem;
+  }
+  
+  .bus-routes-group {
+    gap: 0.3rem;
+  }
+}
+
 @media (max-width: 640px) {
   .header-inner {
     flex-direction: column;
