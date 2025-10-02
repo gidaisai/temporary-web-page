@@ -98,7 +98,7 @@ main {
   margin-bottom: 2.5rem;
 }
 
-/* 画像がある場合のみflexレイアウトを適用 */
+/* 逕ｻ蜒上′縺ゅｋ蝣ｴ蜷医�ｮ縺ｿflex繝ｬ繧､繧｢繧ｦ繝医ｒ驕ｩ逕ｨ */
 .hero.hero-with-image {
   display: flex;
   gap: 2rem;

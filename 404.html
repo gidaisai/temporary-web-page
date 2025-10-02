@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第77回岐阜大学祭 | ページが見つかりません</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // 404ページ用のリダイレクト処理
+    (function() {
+      const currentPath = window.location.pathname;
+      const baseUrl = window.location.origin;
+      
+      // 古いHTMLファイルパターンのリダイレクト
+      const redirectMap = {
+        '/news.html': '/news/',
+        '/programs.html': '/programs/',
+        '/sponsors.html': '/sponsors/',
+      };
+      
+      // リダイレクトが必要な場合
+      if (redirectMap[currentPath]) {
+        window.location.replace(baseUrl + redirectMap[currentPath]);
+        return;
+      }
+      
+      // GitHub Pagesのサブディレクトリパスの場合
+      if (currentPath.includes('/temporary-web-page/')) {
+        const cleanPath = currentPath.replace('/temporary-web-page', '');
+        if (redirectMap[cleanPath]) {
+          window.location.replace(baseUrl + '/temporary-web-page' + redirectMap[cleanPath]);
+          return;
+        }
+      }
+      
+      // 3秒後にトップページにリダイレクト
+      setTimeout(function() {
+        if (currentPath.includes('/temporary-web-page/')) {
+          window.location.replace(baseUrl + '/temporary-web-page/');
+        } else {
+          window.location.replace(baseUrl + '/');
+        }
+      }, 3000);
+    })();
+  </script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <main>
+    <section class="hero">
+      <span class="badge">ページが見つかりません</span>
+      <h1>404 - お探しのページが見つかりません</h1>
+      <p>
+        申し訳ございませんが、お探しのページは存在しないか、移動または削除された可能性があります。
+      </p>
+      <p>
+        <strong>3秒後に自動的にトップページに移動します。</strong>
+      </p>
+      <p>
+        自動的に移動しない場合は、<a href="/" class="button">こちらをクリック</a>してトップページにお戻りください。
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="navigation-heading">
+      <h2 id="navigation-heading">サイト内ページ</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3><a href="/">トップページ</a></h3>
+          <p>岐大祭の概要、開催情報、マスコットキャラクターについて</p>
+        </div>
+        <div class="contact-card">
+          <h3><a href="/news/">お知らせ</a></h3>
+          <p>岐阜大学祭実行委員会からの最新情報</p>
+        </div>
+        <div class="contact-card">
+          <h3><a href="/programs/">企画一覧</a></h3>
+          <p>模擬店、ステージ、展示などの企画情報</p>
+        </div>
+        <div class="contact-card">
+          <h3><a href="/sponsors/">ご協賛</a></h3>
+          <p>企業・団体様向けの協賛のお願い</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="contact-placeholder"></div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="js/common.js"></script>
+</body>
+</html>
