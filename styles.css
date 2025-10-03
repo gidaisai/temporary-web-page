@@ -342,10 +342,31 @@ footer p {
 .notice-item h3 {
   margin: 0;
   font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.notice-date {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: #e0e7ff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  display: inline-block;
+  width: fit-content;
+}
+
+.notice-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 0.3rem;
 }
 
 .notice-item p {
-  margin: 0.5rem 0 0;
+  margin: 0.75rem 0 0;
   line-height: 1.7;
 }
 
