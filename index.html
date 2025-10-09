@@ -54,7 +54,7 @@
               const mins = Math.floor((diff / (1000 * 60)) % 60);
               const secs = Math.floor((diff / 1000) % 60);
               countdownDisplay.innerHTML =
-                `岐阜大学祭まで残り <span class="countdown-number">${String(days).padStart(2, '0')}</span><span class="countdown-unit">日</span> ` +
+                `岐阜大学祭まで<br><span class="countdown-number">${String(days).padStart(2, '0')}</span><span class="countdown-unit">日</span> ` +
                 `<span class="countdown-number">${String(hours).padStart(2, '0')}</span><span class="countdown-unit">時間</span> ` +
                 `<span class="countdown-number">${String(mins).padStart(2, '0')}</span><span class="countdown-unit">分</span> ` +
                 `<span class="countdown-number">${String(secs).padStart(2, '0')}</span><span class="countdown-unit">秒</span>`;
